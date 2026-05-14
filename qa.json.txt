@@ -1,0 +1,20 @@
+// Sprawdzamy auto_id i czy slajd ma być użyty
+      if (row[idxAutoId] == autoId && (row[idxUzyc] === true || row[idxUzyc] === "TRUE")) {
+        sceny.push({
+          kolejnosc: idxKolejnosc !== -1 ? row[idxKolejnosc] : i,
+          url: row[idxUrl],
+          // --- DODAJ TĘ LINIĘ PONIŻEJ ---
+          url_paralaksa: (idxPara !== -1 && row[idxPara]) ? row[idxPara] : "", 
+          // -----------------------------
+          czas_s: toNumber(row[idxCzas]),
+          tekst: row[idxTekst] || "",
+          zoom_start: toNumber(row[idxZS]),
+          zoom_end: toNumber(row[idxZE]),
+          przesuniecie_x: parseInt(toNumber(row[idxPX])),
+          przesuniecie_y: parseInt(toNumber(row[idxPY])),
+          efekt: (idxEfekt !== -1 && row[idxEfekt]) ? row[idxEfekt] : 'default',
+          origin_x: idxOX !== -1 ? toNumber(row[idxOX]) : 50,
+          origin_y: idxOY !== -1 ? toNumber(row[idxOY]) : 50,
+          typ_przejscia: (idxTypP !== -1 && row[idxTypP]) ? row[idxTypP] : 'none'
+        });
+      }
